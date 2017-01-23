@@ -1,0 +1,28 @@
+presentation1
+========================================================
+author:   Paul Harrington
+date:     January 23, 2017
+autosize: true
+
+First Slide
+========================================================
+
+This presentation will show a single plot, rendered using 
+Plotly, from the mtcars dataset
+
+
+Slide With Plot.ly Code
+========================================================
+
+```{r, echo = FALSE, fig.align = 'center', message = FALSE}
+library(plotly)
+data(mtcars)
+p <- plot_ly(mtcars, x = ~mpg, y = ~wt) %>%
+     layout(title = 'Miles Per Gallon by Car Weight',
+     xaxis = list(title = 'Miles per Gallon'), 
+     yaxis = list(title = 'Weight'))
+htmlwidgets::saveWidget(as.widget(p), file = "demo.html")
+```
+<iframe src="demo.html" style="position:absolute;height:100%;width:100%"></iframe>
+
+
